@@ -8,7 +8,7 @@ const body_parser = require("body-parser");
 
 // importing routes
 const usersRouters = require("./src/routes/usersRoutes");
-
+const departamentRoutes=require("./src/routes/departamentRoutes")
 // settings
 app.set("port", process.env.PORT || 3009);
 app.set("views", path.join(__dirname, "views"));
@@ -20,6 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // routes
 app.use("/api/users",usersRouters);
+app.use("/api/departament",departamentRoutes);
 
 // static files
 app.use(express.static(path.join(__dirname, "public")));
