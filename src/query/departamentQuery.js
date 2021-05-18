@@ -1,4 +1,4 @@
-const { add } = require("../controllers/usersControllers");
+
 
 const selectFrom = () => {
   const select = "select * from departament";
@@ -24,6 +24,8 @@ const updateDepartament = (idDepartament, nameDepartament) => {
     "";
   return update;
 };
+
+
 
 exports.selectFrom = selectFrom;
 exports.addDepartament = addDepartament;
