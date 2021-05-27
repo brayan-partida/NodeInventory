@@ -24,6 +24,8 @@ app.use("/api/users", usersRouters);
 app.use("/api/departament", departamentRoutes);
 app.use("/api/items", itemRoutes);
 
+//app.use("/",console.log("hola munso"))
+
 // static files
 app.use(express.static(path.join(__dirname, "public")));
 

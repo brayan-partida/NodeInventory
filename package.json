@@ -2,14 +2,17 @@
   "name": "serviciosocial",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/app.js"
+    "exam": "nodemon src/index.js",
+    "dev": "cross-env NODE_ENV=development nodemon src/client/public/index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
