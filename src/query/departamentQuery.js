@@ -14,7 +14,7 @@ const addDepartament = (idDepartament, nameDepartament) => {
     "')";
   return add;
 };
-
+ 
 const updateDepartament = (idDepartament, nameDepartament) => {
   const update =
     "update departament  set nameDepartament='" +
