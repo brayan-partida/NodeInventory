@@ -21,4 +21,14 @@ controller.add = async (req, res) => {
   res.redirect("/api/items/itemall");
 };
 
+controller.update = async (req, res) => {
+  const { nameItem, descriptionItem, typeItem , codeItem} = req.body;
+  const { idItem } = req.params;
+  const query = await pool.query(
+    item.update(nameItem, descriptionItem, typeItem, idItem,codeItem)
+  );
+
+  res.redirect("/api/items/itemall");
+};
+
 module.exports = controller;
