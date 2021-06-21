@@ -10,6 +10,7 @@ const body_parser = require("body-parser");
 const usersRouters = require("./src/routes/usersRoutes");
 const departamentRoutes = require("./src/routes/departamentRoutes");
 const itemRoutes = require("./src/routes/itemRoutes");
+const loansRoutes = require("./src/routes/loansRoutes");
 // settings
 app.set("port", process.env.PORT || 3009);
 app.set("views", path.join(__dirname, "views"));
@@ -23,8 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/api/users", usersRouters);
 app.use("/api/departament", departamentRoutes);
 app.use("/api/items", itemRoutes);
-
-//app.use("/",console.log("hola munso"))
+app.use("/api/loans", loansRoutes);
 
 // static files
 app.use(express.static(path.join(__dirname, "public")));

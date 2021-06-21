@@ -7,16 +7,34 @@ const select = (nameItem) => {
   const query = "select * from item  where nameItem='" + nameItem + "'";
   return query;
 };
+//ANCHOR  QUERY QUE TRAE LOS ITEM POR NOMBRE
 
-const insert = (nameItem, descriptionItem, typeItem, EncargadoItem) => {
+/**
+ * inserta los item agregando todo estos campos
+ * @param {*} nameItem
+ * @param {*} descriptionItem
+ * @param {*} typeItem
+ * @param {*} codeItem
+ * @param {*} EncargadoItem
+ * @returns
+ */
+const insert = (
+  nameItem,
+  descriptionItem,
+  typeItem,
+  codeItem,
+  EncargadoItem
+) => {
   const query =
-    "INSERT INTO `item`(`nameItem`, `descriptionItem`, `typeItem`, `EncargadoItem`)" +
+    "INSERT INTO `item`(`nameItem`, `descriptionItem`, `typeItem`, `codeItem` ,`EncargadoItem`)" +
     "values ('" +
     nameItem +
     "','" +
     descriptionItem +
     "','" +
     typeItem +
+    "','" +
+    codeItem +
     "'," +
     EncargadoItem +
     ")";
@@ -31,7 +49,7 @@ const update = (nameItem, descriptionItem, typeItem, idItem, codeItem) => {
     descriptionItem +
     "', typeItem='" +
     typeItem +
-    "', codeItem='" + 
+    "', codeItem='" +
     codeItem +
     "' where idItem=" +
     idItem +
