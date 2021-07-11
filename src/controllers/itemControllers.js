@@ -2,7 +2,7 @@ const controller = {};
 const pool = require("../database/database");
 const item = require("../query/itemQuery");
 
-//Obtiene todos los item de la tabla
+
 controller.list = async (req, res) => {
   const query = await pool.query(item.itemfrom());
   res.json(query);

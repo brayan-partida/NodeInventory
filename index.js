@@ -4,13 +4,16 @@ const express = require("express"),
 // mysql = require("mysql"),
 
 const app = express();
-const body_parser = require("body-parser");
 
-// importing routes
+/**
+ * se encuentra todas las
+ * rutas correspondientes
+ */
 const usersRouters = require("./src/routes/usersRoutes");
 const departamentRoutes = require("./src/routes/departamentRoutes");
 const itemRoutes = require("./src/routes/itemRoutes");
 const loansRoutes = require("./src/routes/loansRoutes");
+const loginRoutes = require("./src/routes/loginRoutes");
 // settings
 app.set("port", process.env.PORT || 3009);
 app.set("views", path.join(__dirname, "views"));
@@ -25,6 +28,7 @@ app.use("/api/users", usersRouters);
 app.use("/api/departament", departamentRoutes);
 app.use("/api/items", itemRoutes);
 app.use("/api/loans", loansRoutes);
+app.use("/api/login", loginRoutes);
 
 // static files
 app.use(express.static(path.join(__dirname, "public")));
