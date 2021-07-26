@@ -4,7 +4,7 @@ const express = require("express"),
 // mysql = require("mysql"),
 
 const app = express();
-
+const cors = require("cors");
 /**
  * se encuentra todas las
  * rutas correspondientes
@@ -23,7 +23,7 @@ app.set("view engine", "ejs");
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
+app.use(cors())
 //ANCHOR routes
 app.use("/api/users", usersRouters);
 app.use("/api/departament", departamentRoutes);

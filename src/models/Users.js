@@ -1,30 +1,8 @@
 const bcrypt = require("bcryptjs");
 
 const { get } = require("../routes/loginRoutes");
-
-/*class User {
-  constructor(id, nombre, nick, pass, type, usersDepartament) {
-    this.id = id;
-    this.nombre = nombre;
-    this.nick = nick;
-    this.pass = pass;
-    this.type = type;
-    this.usersDepartament = usersDepartament;
-  }
-
-
- var  id, nombre, nick, pass, type, usersDepartament;
- 
-}*/
-
-encryptPasswoord = async (pass) => {
-  const salt = await bcrypt.getSalt(10);
-  return bcrypt.hash(pass, salt);
-};
-
+//ANCHOR HOLA
 User = function (id, nombre, nick, pass, type, usersDepartament) {
-  // var id, nombre, nick, pass, type, usersDepartament;
-
   /**
    *
    * @param {id} id
@@ -45,7 +23,7 @@ User = function (id, nombre, nick, pass, type, usersDepartament) {
   };
 
   this.getNombre = function () {
-    return (nombre = generateHashPassword(nombre));
+    return nombre;
   };
 
   /**
@@ -69,7 +47,7 @@ User = function (id, nombre, nick, pass, type, usersDepartament) {
   };
 
   this.getPass = function () {
-    return pass;
+    return (pass = generateHashPassword(pass));
   };
 
   /** 
@@ -103,6 +81,8 @@ User = function (id, nombre, nick, pass, type, usersDepartament) {
   const generateHashPassword = (plainPassword) => {
     return bcrypt.hashSync(plainPassword, bcrypt.genSaltSync(10));
   };
+
+  // const createToken=()
 };
 
 module.exports = User;

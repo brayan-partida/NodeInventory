@@ -1,36 +1,45 @@
 const controller = {};
+const jwt = require("jsonwebtoken");
 const pool = require("../database/database");
+const loginQuery = require("../query/loginQuery");
+const bcrypt = require("bcryptjs");
 const User = require("../models/Users");
-const item = require("../query/loginQuery");
 
 /**
- *crea el token de tal manera que genera la sesion
+ * 
+ * NOTE METODO DE PRUEBA DE TOKERN
+ * METODO QUE OBTIENE QUE INGRESA AL LOGIN
+ * TAMBIEN REGRESA UN TOKEN
  * @param {*} req
  * @param {*} res
- */
-controller.signupToken = async (req, res, next) => {
-  const usuario = ({ id, nombre, nick, pass, type, usersDepartament } =
-    req.body);
-
-  const user = new User(usuario);
-  /* id: req.body.id,
-    nombre: req.body.nombre,
-    nick: req.body.nick,
-    pass: req.body.pass,
-    type: req.body.type,
-    usersDepartament: req.body.usersDepartament,*/
-
-  user.setNombre(pass);
-
-  res.json(user.getNombre());
-
-  res.json(user.getId());
-  //console.log(user);
-  // = user.encryptPasswoord(user.pass);
-
-  //console.log(user);
-  console.log(user.getNombre(nombre));
-};
+ * @param {*} next
+ * @resposen token
+ 
+controller.Login = async (req, res, next) => {
+  const { nick, nombre, pass } = req.body;
+  //ANCHOR Obtiene el nick si en la caso de que no se encuentre
+  //marcara un error
+  const obteneUsuario = await pool.query(loginQuery.ObtenerNick(nick));
+  if (obteneUsuario.length === 0) {
+    res.json({
+    Alerta: "no se encontro el nick del usuario"
+    });
+   
+  } else {
+    var equalPass = bcrypt.compareSync(req.body.pass, obteneUsuario[0].pass);
+    if (!equalPass) {
+      res.json({
+        error: "Error el nick o el password estan mal",
+      });
+    } else {
+      console.log("genial tienes tu token");
+      res.json({
+        succesfull: createToken(obteneUsuario),
+        done: "login Correct",
+      });
+    } //termina el else de la validacion de la contrasenia
+  }
+}; */ //---------------------------------------------------->
 /**
  * obtiene la entrada para el token
  * @param {*} req
