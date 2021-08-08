@@ -2,9 +2,10 @@ const { Router } = require("express");
 const loginControllers = require("../controllers/loginControlleer");
 const router = require("express").Router();
 
-router.post("/signin", loginControllers.signinToken);
+router.post("/signin", loginControllers.Login);
 
 router.get("/me", loginControllers.meToken);
+
 
 router.put("/updatetoken", loginControllers.updateToken);
 

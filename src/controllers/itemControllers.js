@@ -10,7 +10,7 @@ controller.list = async (req, res) => {
 
 /**
  *
- * @param {btiene el nombre } req
+ * @param {obtiene el nombre } req
  * @param { regresa la lista que tenga ese nombre} res
  */
 controller.listName = async (req, res) => {
