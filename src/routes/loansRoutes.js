@@ -8,5 +8,7 @@ router.post("/loansadd", verificadoTokens, loansControllers.add);
 router.put("/loansupdate/:idLoans", verificadoTokens, loansControllers.update);
 router.get("/loanscontroll/:controlNumberLoans", verificadoTokens, loansControllers.listnumberControl);
 router.delete("/loansdelete/:idLoans", verificadoTokens, loansControllers.deleteLoans);
+router.get("/prueba_jenkins", verificadoTokens, loansControllers.list)
 
 module.exports = router;
+
